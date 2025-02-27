@@ -1,0 +1,5 @@
+applications:
+- name: portfolio-site
+  memory: 1024M
+  buildpack: nodejs_buildpack
+  command: node --max-old-space-size=1024 node_modules/.bin/react-scripts start

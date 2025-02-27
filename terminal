@@ -1,0 +1,45 @@
+npx create-react-app portfolio-site
+cd portfolio-site
+rm -rf node_modules
+rm package-lock.json
+npm install
+npm install styled-components@latest react-router-dom@latest framer-motion@latest
+mkdir -p public/images 
+curl -o public/images/project1.jpg https://picsum.photos/800/600
+curl -o public/images/project2.jpg https://picsum.photos/800/601
+curl -o public/images/project3.jpg https://picsum.photos/800/602
+curl -o public/images/project4.jpg https://picsum.photos/800/603
+rm next.config.js
+touch public/favicon.ico 
+npm install -g serve
+serve -s build 
+npm start 
+
+# First, let's install a package to help us download and process images
+npm install node-fetch sharp
+
+# Create a script to generate placeholder images
+mkdir -p scripts 
+node scripts/generate-images.js 
+
+npm install qrcode.react 
+
+# Create a directory for the profile image if it doesn't exist
+mkdir -p public/images
+
+# Copy your profile image to the public/images directory
+cp path/to/your/profile-image.jpg public/images/profile.jpg 
+
+mv src/pages/ProjectDetail.js src/pages/projects/proj-1.js 
+
+mkdir -p src/pages/projects 
+
+rm -f src/pages/ProjectDetail.js 
+
+npm install react-helmet 
+
+# Remove Vue favicon if it exists
+rm -f public/favicon.ico
+
+# Create a new favicon directory
+mkdir -p public/favicon 
