@@ -11,10 +11,6 @@ const SecurityHeaders: React.FC = () => (
     <meta name="copyright" content={`Copyright (c) ${new Date().getFullYear()} Saurabh Bhatnagar. All rights reserved.`} />
     <meta name="author" content="Saurabh Bhatnagar" />
     <meta name="rights" content="All rights reserved" />
-    <meta 
-      http-equiv="Content-Security-Policy" 
-      content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;" 
-    />
     
     {/* Prevent text selection and right-click */}
     <style type="text/css">

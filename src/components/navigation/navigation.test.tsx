@@ -1,29 +1,30 @@
+/// <reference types="jest" />
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import { Navigation } from './navigation'
-import { theme } from '../../styles/theme'
+import { theme } from '../../shared/ui/styles/theme'
 
-const mockTheme = {
-  ...theme,
-  colors: theme.light.colors
+function renderNavigation(props = {}) {
+  const defaultProps = {
+    toggleTheme: jest.fn(),
+    isDark: false
+  }
+  
+  return render(
+    <BrowserRouter>
+      <ThemeProvider theme={{ ...theme, colors: theme.light.colors }}>
+        <Navigation {...defaultProps} {...props} />
+      </ThemeProvider>
+    </BrowserRouter>
+  )
 }
 
 describe('Navigation', () => {
   const defaultProps = {
     toggleTheme: jest.fn(),
     isDark: false
-  }
-
-  const renderNavigation = () => {
-    return render(
-      <BrowserRouter>
-        <ThemeProvider theme={mockTheme}>
-          <Navigation {...defaultProps} />
-        </ThemeProvider>
-      </BrowserRouter>
-    )
   }
 
   it('renders navigation links', () => {

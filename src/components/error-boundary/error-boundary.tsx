@@ -12,22 +12,22 @@ interface State {
 }
 
 const ErrorContainer = styled.div`
-  padding: 2rem
-  text-align: center
-  color: ${props => props.theme.colors.text}
+  padding: 2rem;
+  text-align: center;
+  color: ${props => props.theme.colors.text};
 `
 
 const ErrorTitle = styled.h1`
-  color: ${props => props.theme.colors.accent}
-  margin-bottom: 1rem
+  color: ${props => props.theme.colors.accent};
+  margin-bottom: 1rem;
 `
 
 const ErrorMessage = styled.pre`
-  margin-top: 1rem
-  padding: 1rem
-  background: ${props => props.theme.colors.card.background}
-  border-radius: ${props => props.theme.borderRadius.medium}
-  overflow: auto
+  margin-top: 1rem;
+  padding: 1rem;
+  background: ${props => props.theme.colors.card.background};
+  border-radius: ${props => props.theme.borderRadius.medium};
+  overflow: auto;
 `
 
 export class ErrorBoundary extends Component<Props, State> {

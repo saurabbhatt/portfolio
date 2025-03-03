@@ -15,7 +15,7 @@ const Card = styled(motion(Link))`
   overflow: hidden;
   text-decoration: none;
   color: inherit;
-  min-height: 400px; /* Ensure the card has a minimum height */
+  aspect-ratio: 1/1;
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease;
@@ -28,9 +28,8 @@ const Card = styled(motion(Link))`
 
 const StyledImage = styled.img`
   width: 100%;
-  height: 200px; /* Fixed height for uniformity */
-  object-fit: cover; /* Ensures the image covers the area */
-  transition: transform 0.6s ease;
+  height: 100%;
+  object-fit: cover;
 `
 
 const Overlay = styled.div`
@@ -69,7 +68,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       <StyledImage 
         src={image} 
         alt={title}
-        loading="lazy"
       />
       <Overlay>
         <ProjectTitle>{title}</ProjectTitle>

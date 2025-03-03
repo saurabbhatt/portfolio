@@ -16,7 +16,7 @@ const AboutContainer = styled.div`
 `;
 
 const Title = styled.h1`
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   font-size: 2.5rem;
   color: ${props => props.theme.colors.primary};
   position: relative;
@@ -26,8 +26,8 @@ const Title = styled.h1`
     position: absolute;
     left: 0;
     bottom: -10px;
-    width: 60px;
-    height: 4px;
+    width: 40px;
+    height: 3px;
     background: ${props => props.theme.colors.accent};
     border-radius: 2px;
   }
@@ -37,17 +37,22 @@ const Content = styled.div`
   line-height: 1.8;
   
   p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     font-size: 1.1rem;
+    color: ${props => props.theme.colors.text};
+    opacity: 0.9;
   }
 `;
 
 const SkillSection = styled.div`
-  margin-top: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
   
   h2 {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     font-size: 1.5rem;
+    font-weight: 500;
+    color: ${props => props.theme.colors.primary};
   }
   
   ul {
@@ -114,22 +119,16 @@ const ProfileSection = styled.div`
 `;
 
 const ProfileImage = styled(motion.img)`
-  width: 280px;
-  height: 280px;
+  width: 240px;
+  height: 240px;
   object-fit: cover;
-  border-radius: ${props => props.theme.borderRadius.large};
+  border-radius: 50%;
   box-shadow: ${props => props.theme.shadows.medium};
   transition: transform ${props => props.theme.transitions.default};
-  cursor: pointer;
-  position: relative;
-
-  &:hover {
-    transform: scale(1.02);
-  }
 
   @media (max-width: 768px) {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
   }
 `;
 
@@ -137,19 +136,35 @@ const ProfileInfo = styled.div`
   flex: 1;
 `;
 
-const LanguageSection = styled(SkillSection)`
-  margin-top: 1rem;
+const LanguageSection = styled.div`
+  margin-top: 1.5rem;
+  
+  h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: ${props => props.theme.colors.primary};
+  }
+  
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    list-style: none;
+    padding: 0;
+  }
 `;
 
-const LanguageTag = styled(SkillTag)`
+const LanguageTag = styled.li`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: ${props => props.theme.colors.accent};
-  
-  &:hover {
-    background: ${props => props.theme.colors.secondary};
-  }
+  background: transparent;
+  border: 1px solid ${props => props.theme.colors.accent};
+  color: ${props => props.theme.colors.text};
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
 `;
 
 const EasterEggHint = styled(motion.div)`
@@ -204,17 +219,15 @@ const About: React.FC = () => {
       transition={{ duration: 0.5 }}
     >
       <AboutContainer>
-        <Title>👨‍ About Me</Title>
+        <Title>About Me</Title>
 
         <ProfileSection>
           <div style={{ position: 'relative' }}>
             <ProfileImage 
-              src="/images/profile.jpg" 
+              src="https://picsum.photos/800/800?random=5" 
               alt="Saurabh Bhatnagar"
-              loading="lazy"
+              whileHover={{ scale: 1.05 }}
               onClick={handleImageClick}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
             />
             {showHint && clickCount > 0 && clickCount < 5 && (
               <motion.div
@@ -229,20 +242,21 @@ const About: React.FC = () => {
             )}
           </div>
           <ProfileInfo>
-            <p>
-              As a passionate SAP developer with a wealth of experience, I possess a diverse skill set 
-              that enables me to deliver exceptional results. My expertise includes ABAP on S/4 HANA, 
-              SAP-BTP, SAP AI Business Services, SAP CPI, SAP CAP, SAP Build Apps, SAP Sales and 
-              Service Cloud, and SAP Mobile App Development.
-            </p>
+            <Content>
+              <p>
+                As a passionate SAP developer with over 10 years of experience, I specialize in 
+                delivering enterprise solutions that transform business operations. My expertise 
+                spans ABAP on S/4 HANA, SAP-BTP, and AI Business Services.
+              </p>
+            </Content>
+            
             <LanguageSection>
-              <h2>Languages</h2>
+              <h3>Languages</h3>
               <ul>
                 {languages.map(lang => (
                   <LanguageTag key={lang.name}>
                     <span>{lang.flag}</span>
                     <span>{lang.name}</span>
-                    <span style={{ opacity: 0.7 }}>• {lang.level}</span>
                   </LanguageTag>
                 ))}
               </ul>
@@ -259,9 +273,7 @@ const About: React.FC = () => {
               'SAP AI Business Services',
               'SAP CPI',
               'SAP CAP',
-              'SAP Build Apps',
-              'Sales & Service Cloud',
-              'Mobile Development'
+              'SAP Build Apps'
             ].map(skill => (
               <SkillTag key={skill}>{skill}</SkillTag>
             ))}
@@ -269,59 +281,35 @@ const About: React.FC = () => {
         </SkillSection>
 
         <SkillSection>
-          <h2>Tech Arsenal</h2>
+          <h2>Development Skills</h2>
           <ul>
             {[
               'JavaScript',
               'NodeJS',
-              'React Native',
-              'ABAP',
-              'CAP',
-              'Github',
+              'React',
+              'UI/UX Design',
               'Web Services',
-              'Groovy Scripts',
-              'UI/UX Design'
+              'GitHub'
             ].map(skill => (
               <SkillTag key={skill}>{skill}</SkillTag>
             ))}
           </ul>
         </SkillSection>
 
-        <SkillSection>
-          <h2>AI Expertise</h2>
-          <ul>
-            {[
-              'Hana Vector Engine',
-              'SAP Joule',
-              'RAG',
-              'Langchain'
-            ].map(skill => (
-              <SkillTag key={skill}>{skill}</SkillTag>
-            ))}
-          </ul>
-        </SkillSection>
-
-        <p>
-          My experience in S/4 Hana E2E implementation, combined with my functional knowledge 
-          in SAP-FICA and ISU-Utilities, allows me to provide end-to-end solutions that meet 
-          complex business requirements. I approach each project with a visionary perspective, 
-          always seeking new ways to push the boundaries of what is possible.
-        </p>
-
-        <p>
-          I am committed to delivering exceptional customer experiences through a holistic 
-          approach that encompasses both technical and functional expertise. My attention to 
-          detail, strong analytical skills, and ability to collaborate with cross-functional 
-          teams enable me to exceed expectations and achieve business objectives.
-        </p>
-
-        <p>
-          In today's fast-paced world, I believe that innovation and agility are key to 
-          success, and I am always eager to explore new technologies and techniques that can 
-          deliver superior results. If you are looking for a dynamic and visionary Full Stack 
-          developer with a track record of success, then look no further. Let's collaborate 
-          to unlock new possibilities and drive your business forward.
-        </p>
+        <Content>
+          <p>
+            My experience in S/4 Hana implementation, combined with functional knowledge 
+            in SAP-FICA and ISU-Utilities, allows me to provide end-to-end solutions that meet 
+            complex business requirements. I approach each project with a visionary perspective, 
+            always seeking innovative ways to solve problems.
+          </p>
+          
+          <p>
+            I believe that the best solutions come from understanding both technical capabilities 
+            and business needs. My goal is to create systems that not only work efficiently but 
+            also enhance the user experience and deliver measurable business value.
+          </p>
+        </Content>
       </AboutContainer>
 
       {showQR && (
