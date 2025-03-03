@@ -20,11 +20,7 @@ export const useThemeToggle = (): UseThemeToggleReturn => {
 
   const toggleTheme = () => setIsDark(!isDark)
 
-  const currentTheme = {
-    ...theme,
-    colors: theme[isDark ? 'dark' : 'light'].colors,
-    isDark
-  }
+  const currentTheme = isDark ? theme.dark : theme.light
 
   return { isDark, toggleTheme, currentTheme }
 } 

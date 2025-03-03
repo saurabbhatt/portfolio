@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { useTheme } from '../../shared/lib/hooks/use-theme';
 
 export type ThemeToggleProps = {
   isDark: boolean;
@@ -14,7 +13,8 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
   toggleTheme,
   testID 
 }) => {
-  const theme = useTheme();
+  // Remove unused theme variable
+  // const theme = useTheme();
 
   return (
     <ToggleButton

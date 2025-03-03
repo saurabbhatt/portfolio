@@ -14,7 +14,7 @@ function renderNavigation(props = {}) {
   
   return render(
     <BrowserRouter>
-      <ThemeProvider theme={{ ...theme, colors: theme.light.colors }}>
+      <ThemeProvider theme={theme.light}>
         <Navigation {...defaultProps} {...props} />
       </ThemeProvider>
     </BrowserRouter>

@@ -9,12 +9,13 @@ import { SapImplementation } from '../pages/projects/sap-implementation'
 import { SecurityHeaders } from '../shared/ui/components/security-headers'
 import { useThemeToggle } from '../shared/lib/hooks/use-theme-toggle'
 import { ErrorBoundary } from '../shared/ui/components/error-boundary'
+import { theme } from '../shared/ui/styles/theme'
 
 export const App: React.FC = () => {
-  const { isDark, toggleTheme, currentTheme } = useThemeToggle()
+  const { isDark, toggleTheme } = useThemeToggle()
 
   return (
-    <ThemeProvider theme={currentTheme}>
+    <ThemeProvider theme={isDark ? theme.dark : theme.light}>
       <SecurityHeaders />
       <GlobalStyles />
       <Router>
