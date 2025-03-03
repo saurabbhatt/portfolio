@@ -1,3 +1,5 @@
+import { DefaultTheme } from 'styled-components';
+
 // Project types
 export type Project = {
   id: string
@@ -29,30 +31,10 @@ export type ColorScheme = {
   }
 }
 
-export type Theme = {
-  light: {
-    colors: ColorScheme
-  }
-  dark: {
-    colors: ColorScheme
-  }
-  fonts: {
-    main: string
-    heading: string
-  }
-  maxWidth: string
-  transitions: {
-    default: string
-    slow: string
-  }
-  shadows: {
-    small: string
-    medium: string
-    large: string
-  }
-  borderRadius: {
-    small: string
-    medium: string
-    large: string
-  }
-} 
+// Theme container type used in our application
+export type ThemeContainer = {
+  light: any
+  dark: any
+}
+
+// Remove the duplicate Theme interface entirely as it's already defined in styled.d.ts 
