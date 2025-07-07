@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from './shared/ui/styles/global-styles'
 import { Layout } from './widgets/layout'
